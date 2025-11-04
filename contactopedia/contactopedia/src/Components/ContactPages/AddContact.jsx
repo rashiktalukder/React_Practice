@@ -13,7 +13,11 @@ class AddContact extends React.Component {
     
     handleAddContactFormSubmit = (e) => {
         e.preventDefault();
-        this.props.handleAddContact(); 
+        const name = e.target.elements.contactName.value.trim();
+        const email = e.target.elements.contactEmail.value.trim();
+        const phone = e.target.elements.contactPhone.value.trim();
+
+        this.props.handleAddContact({name:name, email: email, phone: phone}); 
     } 
 
     render(){
@@ -26,15 +30,15 @@ class AddContact extends React.Component {
                             Add a New Contact
                         </div>
                         <div className="col-12 col-md-4 p-1">
-                            <input className="form-control form-control-sm" placeholder="Name..."></input>
+                            <input className="form-control form-control-sm" placeholder="Name..." name="contactName"></input>
                         </div>
 
                         <div className="col-12 col-md-4 p-1">
-                            <input className="form-control form-control-sm" placeholder="Email..."></input>
+                            <input className="form-control form-control-sm" placeholder="Email..." name="contactEmail"></input>
                         </div>
 
                         <div className="col-12 col-md-4 p-1">
-                            <input className="form-control form-control-sm" placeholder="Phone..."></input>
+                            <input className="form-control form-control-sm" placeholder="Phone..." name="contactPhone"></input>
                         </div>
 
                         <div className="col-12 col-md-6 offset-md-3 p-1">
